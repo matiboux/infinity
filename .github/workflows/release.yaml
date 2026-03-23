@@ -11,6 +11,7 @@ env:
   WORKDIR: "libs/infinity_emb"
 
 jobs:
+
   docker-container-push-nvidia:
     uses:
       ./.github/workflows/release_docker_container.yaml
@@ -21,7 +22,7 @@ jobs:
       appendix_tag: ""
       platforms: "linux/amd64,linux/arm64"
     secrets: inherit
-  
+
   docker-container-push-cpu:
     uses:
       ./.github/workflows/release_docker_container.yaml
@@ -30,9 +31,9 @@ jobs:
       dockerfile: libs/infinity_emb/Dockerfile.cpu_auto
       image: michaelf34/infinity
       appendix_tag: "-cpu"
-      platforms: "linux/amd64"
+      platforms: "linux/amd64,linux/arm64"
     secrets: inherit
-  
+
   # Container to large for github action
   # docker-container-push-onnx-trt:
   #   uses:
@@ -42,7 +43,7 @@ jobs:
   #     dockerfile: libs/infinity_emb/Dockerfile.trt_onnx_auto
   #     image: michaelf34/infinity
   #     appendix_tag: "-trt-onnx"
-  #     platforms: "linux/amd64"
+  #     platforms: "linux/amd64,linux/arm64"
   #   secrets: inherit
 
   # Container to large for github action
@@ -54,5 +55,5 @@ jobs:
   #     dockerfile: libs/infinity_emb/Dockerfile.amd_auto
   #     image: michaelf34/infinity
   #     appendix_tag: "-amd"
-  #     platforms: "linux/amd64"
+  #     platforms: "linux/amd64,linux/arm64"
   #   secrets: inherit
