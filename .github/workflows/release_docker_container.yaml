@@ -2,6 +2,7 @@
 name: release_docker
 
 on:
+
   workflow_call:
     inputs:
       dockerfile:
@@ -33,13 +34,16 @@ env:
   APPENDIX_TAG: ${{ inputs.appendix_tag || '' }}
 
 jobs:
+
   docker:
     runs-on: ubuntu-latest
     environment:
       name: publish
     steps:
+
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Free Disk Space
         uses: "./.github/actions/disk_cleanup"
         if: runner.os == 'Linux'
@@ -51,9 +55,11 @@ jobs:
           large-packages: false
           docker-images: false
           swap-storage: false
+
       - name: Get git tag
         uses: actions-ecosystem/action-get-latest-tag@v1
         id: get-latest-tag
+
       - name: Set docker tag
         env:
           VERSION: ${{ steps.get-latest-tag.outputs.tag }}
@@ -62,8 +68,10 @@ jobs:
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
@@ -78,11 +86,12 @@ jobs:
       #     file: ${{ inputs.dockerfile }}
       #     load: true
       #     tags: ${{ env.TEST_TAG }}
-      #
+
       # - name: Test
       #   # show that at least --help command is running
       #   run: |
       #     docker run --rm ${{ env.TEST_TAG }} --help
+
       - name: Build and Push to Docker Hub
         uses: docker/build-push-action@v5
         with:
