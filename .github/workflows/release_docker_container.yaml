@@ -33,6 +33,11 @@ on:
         description: "Whether to login to Docker Hub"
         default: true
 
+# Set GITHUB_TOKEN permissions for the workflow
+permissions:
+  contents: read
+  packages: write
+
 env:
   TEST_TAG: ${{ inputs.image }}:test
   LATEST_TAG: ${{ inputs.image }}:latest
@@ -98,7 +103,7 @@ jobs:
       #   run: |
       #     docker run --rm ${{ env.TEST_TAG }} --help
 
-      - name: Build and Push to Docker Hub
+      - name: Build and Push to a registry
         uses: docker/build-push-action@v5
         with:
           context:  ${{ inputs.context }}
