@@ -12,16 +12,16 @@ env:
 
 jobs:
 
-  docker-container-push-nvidia:
-    uses:
-      ./.github/workflows/release_docker_container.yaml
-    with:
-      # working-directory: libs/infinity_emb
-      dockerfile: libs/infinity_emb/Dockerfile.nvidia_auto
-      image: michaelf34/infinity
-      appendix_tag: ""
-      platforms: "linux/amd64,linux/arm64"
-    secrets: inherit
+  # docker-container-push-nvidia:
+  #   uses:
+  #     ./.github/workflows/release_docker_container.yaml
+  #   with:
+  #     # working-directory: libs/infinity_emb
+  #     dockerfile: libs/infinity_emb/Dockerfile.nvidia_auto
+  #     image: michaelf34/infinity
+  #     appendix_tag: ""
+  #     platforms: "linux/amd64,linux/arm64"
+  #   secrets: inherit
 
   docker-container-push-cpu:
     uses:
