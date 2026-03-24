@@ -6,6 +6,11 @@ on:
   release:
     types: [published]
 
+# Set GITHUB_TOKEN permissions for the workflow
+permissions:
+  contents: read
+  packages: write
+
 env:
   POETRY_VERSION: "1.8.4"
   WORKDIR: "libs/infinity_emb"
