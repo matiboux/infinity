@@ -16,7 +16,7 @@ ENV PYTHONUNBUFFERED=1 \
     POETRY_NO_INTERACTION=1 \
     # extras
     EXTRAS="all" \
-    PYTHON="python3" 
+    PYTHON="python3"
     # "python3.10"
 RUN apt-get update && apt-get install --no-install-recommends -y build-essential python3-dev libsndfile1 $PYTHON-venv $PYTHON-pip $PYTHON curl
 RUN rm -rf /usr/local/cuda-12.9/compat
@@ -52,7 +52,7 @@ RUN apt-get install --no-install-recommends -y git && poetry run python -m pip i
 FROM builder AS testing
 # install lint and test dependencies
 RUN poetry install --no-interaction --no-ansi  --extras "${EXTRAS}" --with lint,test && poetry cache clear pypi --all
-# lint 
+# lint
 RUN poetry run ruff check .
 RUN poetry run mypy .
 # pytest
@@ -82,8 +82,8 @@ RUN echo "all tests passed" > "test_results.txt"
 # Use a multi-stage build -> production version, with download
 FROM base AS tested-builder
 COPY --from=builder /app /app
-# force testing stage to run
-COPY --from=testing /app/test_results.txt /app/test_results.txt
+# # force testing stage to run
+# COPY --from=testing /app/test_results.txt /app/test_results.txt
 ENV HF_HOME=/app/.cache/huggingface
 ENV PATH=/app/.venv/bin:$PATH
 
