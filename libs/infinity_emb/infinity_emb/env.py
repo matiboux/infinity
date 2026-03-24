@@ -144,7 +144,7 @@ class __Infinity_EnvManager:
     @cached_property
     def bettertransformer(self):
         return self._to_bool_multiple(
-            self._optional_infinity_var_multiple("bettertransformer", default=["true"])
+            self._optional_infinity_var_multiple("bettertransformer", default=["false"])
         )
 
     @cached_property
@@ -265,7 +265,7 @@ class __Infinity_EnvManager:
         return self._to_bool_multiple(
             self._optional_infinity_var_multiple("onnx_disable_optimize", default=["false"])
         )
-    
+
     @cached_property
     def onnx_do_not_prefer_quantized(self):
         return self._to_bool_multiple(
