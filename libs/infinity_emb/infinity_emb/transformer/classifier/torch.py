@@ -33,7 +33,7 @@ class SentenceClassifier(BaseClassifer):
         assert ls is not None
 
         if ls.loading_dtype is not None:  # type: ignore
-            model_kwargs["torch_dtype"] = ls.loading_dtype
+            model_kwargs["dtype"] = ls.loading_dtype
 
         self._pipe = pipeline(
             task="text-classification",

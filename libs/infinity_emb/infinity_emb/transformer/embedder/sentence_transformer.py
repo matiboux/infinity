@@ -67,7 +67,7 @@ class SentenceTransformerPatched(SentenceTransformer, BaseEmbedder):
         assert ls is not None
 
         if ls.loading_dtype is not None:
-            model_kwargs["torch_dtype"] = ls.loading_dtype
+            model_kwargs["dtype"] = ls.loading_dtype
 
         super().__init__(
             engine_args.model_name_or_path,

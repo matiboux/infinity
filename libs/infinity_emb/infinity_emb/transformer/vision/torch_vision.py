@@ -53,9 +53,9 @@ class TIMM(BaseTIMM):
         if device == Device.auto and torch.cuda.is_available():
             device = Device.cuda
         if device == "cuda" and engine_args.dtype in (Dtype.float16, Dtype.bfloat16):
-            extra_model_args["torch_dtype"] = engine_args.dtype.value
+            extra_model_args["dtype"] = engine_args.dtype.value
         elif device == "cuda" and engine_args.dtype in (Dtype.auto):
-            extra_model_args["torch_dtype"] = "float16"
+            extra_model_args["dtype"] = "float16"
 
         if self.is_colipali:
             CHECK_COLPALI_ENGINE.mark_required()
