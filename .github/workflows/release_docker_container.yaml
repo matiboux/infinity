@@ -36,6 +36,7 @@ on:
 # Set GITHUB_TOKEN permissions for the workflow
 permissions:
   contents: read
+  id-token: write
   packages: write
 
 env:
