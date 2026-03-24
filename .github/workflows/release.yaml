@@ -26,7 +26,7 @@ jobs:
       # image: michaelf34/infinity
       image: ghcr.io/matiboux/infinity
       appendix_tag: ""
-      platforms: "linux/amd64,linux/arm64"
+      platforms: "linux/amd64"
       login_dockerhub: false
     secrets: inherit
 
