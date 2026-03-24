@@ -1,0 +1,14 @@
+services:
+  api:
+    # Build
+    build:
+      context: .
+      dockerfile: Dockerfile.nvidia_auto
+    # Deploy
+    environment:
+        PORT: '8080'
+        DO_NOT_TRACK: '1'
+        API_KEY: 'abc'
+        MODEL_ID: 'jinaai/jina-embeddings-v5-text-small'
+    ports:
+      - "8000:8000"
