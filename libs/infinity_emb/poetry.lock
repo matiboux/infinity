@@ -718,7 +718,7 @@ files = [
     {file = "exceptiongroup-1.2.2-py3-none-any.whl", hash = "sha256:3111b9d131c238bec2f8f516e123e14ba243563fb135d3fe885990585aa7795b"},
     {file = "exceptiongroup-1.2.2.tar.gz", hash = "sha256:47c2edf7c6738fafb49fd34290706d1a1a2f4d1c6df275526b62cbb4aa5393cc"},
 ]
-markers = {main = "(extra == \"server\" or extra == \"all\") and python_version < \"3.11\"", test = "python_version < \"3.11\""}
+markers = {main = "(extra == \"server\" or extra == \"all\") and python_version == \"3.10\"", test = "python_version == \"3.10\""}
 
 [package.extras]
 test = ["pytest (>=6)"]
@@ -1049,12 +1049,11 @@ version = "8.5.0"
 description = "Read metadata from Python packages"
 optional = false
 python-versions = ">=3.8"
-groups = ["main", "mkdocs", "test"]
+groups = ["mkdocs"]
 files = [
     {file = "importlib_metadata-8.5.0-py3-none-any.whl", hash = "sha256:45e54197d28b7a7f1559e60b95e7c567032b602131fbd588f1497f47880aa68b"},
     {file = "importlib_metadata-8.5.0.tar.gz", hash = "sha256:71522656f0abace1d072b9e5481a48f07c138e00f079c38c8f883823f9c26bd7"},
 ]
-markers = {main = "platform_system == \"Linux\" and platform_machine == \"x86_64\" and (extra == \"ct2\" or extra == \"torch\" or extra == \"all\" or extra == \"optimum\" or extra == \"vision\") and python_version == \"3.9\"", test = "platform_system == \"Linux\" and platform_machine == \"x86_64\" and python_version == \"3.9\""}
 
 [package.dependencies]
 zipp = ">=3.20"
@@ -1079,9 +1078,6 @@ files = [
     {file = "importlib_resources-6.4.5-py3-none-any.whl", hash = "sha256:ac29d5f956f01d5e4bb63102a5a19957f1b9175e45649977264a1416783bb717"},
     {file = "importlib_resources-6.4.5.tar.gz", hash = "sha256:980862a1d16c9e147a59603677fa2aa5fd82b87f223b6cb870695bcfce830065"},
 ]
-
-[package.dependencies]
-zipp = {version = ">=3.1.0", markers = "python_version < \"3.10\""}
 
 [package.extras]
 check = ["pytest-checkdocs (>=2.4)", "pytest-ruff (>=0.2.1) ; sys_platform != \"cygwin\""]
@@ -1250,9 +1246,6 @@ files = [
     {file = "Markdown-3.7-py3-none-any.whl", hash = "sha256:7eb6df5690b81a1d7942992c97fad2938e956e79df20cbc6186e9c3a77b1c803"},
     {file = "markdown-3.7.tar.gz", hash = "sha256:2ae2471477cfd02dbbf038d5d9bc226d40def84b4fe2986e49b59b6b472bbed2"},
 ]
-
-[package.dependencies]
-importlib-metadata = {version = ">=4.4", markers = "python_version < \"3.10\""}
 
 [package.extras]
 docs = ["mdx-gh-links (>=0.2)", "mkdocs (>=1.5)", "mkdocs-gen-files", "mkdocs-literate-nav", "mkdocs-nature (>=0.6)", "mkdocs-section-index", "mkdocstrings[python]"]
@@ -1423,7 +1416,6 @@ files = [
 click = ">=7.0"
 colorama = {version = ">=0.4", markers = "platform_system == \"Windows\""}
 ghp-import = ">=1.0"
-importlib-metadata = {version = ">=4.4", markers = "python_version < \"3.10\""}
 jinja2 = ">=2.11.1"
 markdown = ">=3.3.6"
 markupsafe = ">=2.0.1"
@@ -1452,7 +1444,6 @@ files = [
 ]
 
 [package.dependencies]
-importlib-metadata = {version = ">=4.3", markers = "python_version < \"3.10\""}
 mergedeep = ">=1.3.4"
 platformdirs = ">=2.2.0"
 pyyaml = ">=5.1"
@@ -3489,7 +3480,6 @@ markers = {main = "extra == \"server\" or extra == \"all\""}
 
 [package.dependencies]
 anyio = ">=3.4.0,<5"
-typing-extensions = {version = ">=3.10.0", markers = "python_version < \"3.10\""}
 
 [package.extras]
 full = ["httpx (>=0.22.0)", "itsdangerous", "jinja2", "python-multipart (>=0.0.7)", "pyyaml"]
@@ -3630,7 +3620,7 @@ files = [
     {file = "tomli-2.0.2-py3-none-any.whl", hash = "sha256:2ebe24485c53d303f690b0ec092806a085f07af5a5aa1464f3931eec36caaa38"},
     {file = "tomli-2.0.2.tar.gz", hash = "sha256:d46d457a85337051c36524bc5349dd91b1877838e2979ac5ced3e710ed8a60ed"},
 ]
-markers = {lint = "python_version < \"3.11\"", test = "python_full_version <= \"3.11.0a6\""}
+markers = {lint = "python_version == \"3.10\"", test = "python_full_version <= \"3.11.0a6\""}
 
 [[package]]
 name = "torch"
@@ -3878,7 +3868,6 @@ files = [
 markers = {main = "platform_system == \"Linux\" and platform_machine == \"x86_64\" and (extra == \"ct2\" or extra == \"torch\" or extra == \"all\" or extra == \"optimum\" or extra == \"vision\")", test = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
 
 [package.dependencies]
-importlib-metadata = {version = "*", markers = "python_version < \"3.10\""}
 setuptools = ">=40.8.0"
 
 [package.extras]
@@ -4050,7 +4039,7 @@ files = [
     {file = "typing_extensions-4.12.2-py3-none-any.whl", hash = "sha256:04e5ca0351e0f3f85c6853954072df659d0d13fac324d0072316b67d7794700d"},
     {file = "typing_extensions-4.12.2.tar.gz", hash = "sha256:1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"},
 ]
-markers = {lint = "python_version < \"3.11\""}
+markers = {lint = "python_version == \"3.10\""}
 
 [[package]]
 name = "urllib3"
@@ -4409,12 +4398,11 @@ version = "3.20.2"
 description = "Backport of pathlib-compatible object wrapper for zip files"
 optional = false
 python-versions = ">=3.8"
-groups = ["main", "mkdocs", "test"]
+groups = ["mkdocs"]
 files = [
     {file = "zipp-3.20.2-py3-none-any.whl", hash = "sha256:a817ac80d6cf4b23bf7f2828b7cabf326f15a001bea8b1f9b49631780ba28350"},
     {file = "zipp-3.20.2.tar.gz", hash = "sha256:bc9eb26f4506fda01b81bcde0ca78103b6e62f991b381fec825435c836edbc29"},
 ]
-markers = {main = "platform_system == \"Linux\" and platform_machine == \"x86_64\" and (extra == \"ct2\" or extra == \"torch\" or extra == \"all\" or extra == \"optimum\" or extra == \"vision\") and python_version == \"3.9\"", test = "platform_system == \"Linux\" and platform_machine == \"x86_64\" and python_version == \"3.9\""}
 
 [package.extras]
 check = ["pytest-checkdocs (>=2.4)", "pytest-ruff (>=0.2.1) ; sys_platform != \"cygwin\""]
@@ -4440,5 +4428,5 @@ vision = ["colpali-engine", "pillow", "timm", "torchvision"]
 
 [metadata]
 lock-version = "2.1"
-python-versions = ">=3.9,<3.14"
-content-hash = "82f4d32bdaa9664df7f27c08579c5a0916849ba1a6ac5c7226eca3d0a0955712"
+python-versions = ">=3.10,<3.14"
+content-hash = "ff741c48792873736db89d0ccec91d4c8481f0b87b2e86958ee49d43d3793092"
