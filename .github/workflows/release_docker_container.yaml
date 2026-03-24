@@ -115,3 +115,5 @@ jobs:
           platforms: ${{ inputs.platforms }}
           tags: ${{ env.LATEST_TAG }}${{ env.APPENDIX_TAG }},${{ env.VERSION_TAG }}${{ env.APPENDIX_TAG }}
           push: true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
