@@ -85,9 +85,18 @@ class SentenceTransformerPatched(SentenceTransformer, BaseEmbedder):
         self.normalize_embeddings = True
 
         self.mode_colbert = False
-        if "colbert" in fm.auto_model.config.architectures[0].lower():
-            self.mode_colbert = True
-            self.normalize_embeddings = False
+        # Robustly check for auto_model and architectures
+        architectures = None
+        if hasattr(fm, "auto_model") and hasattr(fm.auto_model, "config") and hasattr(fm.auto_model.config, "architectures"):
+            architectures = fm.auto_model.config.architectures
+        elif hasattr(fm, "config") and hasattr(fm.config, "architectures"):
+            architectures = fm.config.architectures
+        if architectures and isinstance(architectures, (list, tuple)) and len(architectures) > 0:
+            if "colbert" in architectures[0].lower():
+                self.mode_colbert = True
+                self.normalize_embeddings = False
+        else:
+            logger.warning("Could not determine model architecture for colbert mode detection: missing 'auto_model.config.architectures'.")
 
         self._infinity_tokenizer = copy.deepcopy(fm.tokenizer)
         self.eval()
