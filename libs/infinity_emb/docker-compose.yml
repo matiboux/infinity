@@ -3,7 +3,7 @@ services:
     # Build
     build:
       context: .
-      dockerfile: Dockerfile.nvidia_auto
+      dockerfile: Dockerfile.nvidia_auto  # Dockerfile.cpu_auto
     # Deploy
     environment:
       PORT: '8000'
